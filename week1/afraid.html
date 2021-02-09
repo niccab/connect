@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+    <meta charset="utf-8" />
+    <title>The Transformation of Silence into Language and Action</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="text/javascript">
+        let clicks = 0;
+
+        window.addEventListener('load', init);
+
+        function init() {
+            document.body.addEventListener('click', clickCalled);
+            document.getElementById("mouseoverelement").addEventListener('mousemove', clickCalled);
+
+            function clickCalled() {
+                clicks++;
+                console.log(clicks);
+
+                let clicksElement = document.getElementById("clicks");
+                clicksElement.style.fontSize = clicks + "px";
+                clicksElement.style.color = "black";
+
+                document.getElementsByTagName("a")[0].style.color = "black";
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <div>For we have been socialized to respect fear more than our own needs for language and definition, and while we wait in silence for that final luxury of fearlessness, </div>
+
+    <div id="mouseoverelement">*
+        <font color="white">
+            <div id="clicks">
+                <a href="weight.html">the weight of that silence will choke us.</a>
+            </div>
+
+    </div>
+
+
+</body>
+</html>

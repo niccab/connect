@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Fun with the DOM</title>
+    <script type="text/javascript">
+        let clicks = 0;
+
+        window.addEventListener('load', init);
+
+        function init() {
+            document.body.addEventListener('click', clickCalled);
+            document.getElementById("mouseoverelement").addEventListener('mousemove', clickCalled);
+
+        function clickCalled() {
+            clicks++;
+            console.log(clicks);
+
+            let clicksElement = document.getElementById("clicks");
+            clicksElement.innerHTML = clicks;
+            clicksElement.style.fontSize = clicks + "px";
+        }
+        }
+
+    </script>
+</head>
+<body>
+    <div>Number of Clicks:</div>
+    <div id="clicks">0</div>
+    <div id="mouseoverelement">Hover Here</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+    <meta charset="utf-8" />
+    <title>The Transformation of Silence into Language and Action</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="text/javascript">
+        let clicks = 0;
+
+        window.addEventListener('load', init);
+
+        function init() {
+            document.body.addEventListener('click', clickCalled);
+            document.getElementById("mouseoverelement").addEventListener('mousemove', clickCalled);
+
+            function clickCalled() {
+
+                document.body.style.backgroundColor = "black";
+                clicks++;
+                console.log(clicks);
+
+                let clicksElement = document.getElementById("clicks");
+                clicksElement.style.fontSize = clicks + "px";
+                clicksElement.style.color = "white";
+
+                document.getElementsByTagName("a")[0].style.color = "black";
+                
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <div>There are so many silences to be</div>
+
+    <div id="mouseoverelement">*
+        <font color="white">
+            <div id="clicks">
+                b r o k e n .
+            </div>
+
+    </div>
+
+
+</body>
+</html>

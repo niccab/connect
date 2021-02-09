@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+
+    <meta charset="utf-8" />
+    <title>The Transformation of Silence into Language and Action</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="text/javascript">
+        let clicks = 0;
+
+        window.addEventListener('load', init);
+
+        function init() {
+            document.body.addEventListener('click', clickCalled);
+            document.getElementById("mouseoverelement").addEventListener('mousemove', clickCalled);
+
+            function clickCalled() {
+                clicks++;
+                console.log(clicks);
+
+                let clicksElement = document.getElementById("clicks");
+                clicksElement.style.fontSize = clicks + "px";
+                clicksElement.style.color = "black";
+
+                document.getElementsByTagName("a")[0].style.color = "black";
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <h1>The Transformation of Silence into Language and Action</h1>
+    <h2>by Audre Lorde</h2>
+
+    <br /><br />This site includes selected quotes from Lorde's essay The Transformation of Silence into Language and Action.
+    <br /><br />
+
+    Continuously move your mouse over the * you see to transform silence.
+    <br /><br />
+
+
+
+    <div id="mouseoverelement">
+        <h1>*</h1>    
+
+            <font color="white">
+            <div id="clicks">
+                let's <a href="begin.html">begin</a>.
+            </div>
+
+    </div>
+
+
+</body>
+</html>
