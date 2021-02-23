@@ -29,10 +29,11 @@ app.post('/formdata', function (req, res) {
 
     var dataToSave = {
         text: req.body.data,
+        number: req.body.number,
         color: req.body.color
     };
 
-    //console.log(dataToSave);
+    //console.log(dataToSave);s
     submittedData.push(dataToSave);
     console.log(submittedData);
 
@@ -40,7 +41,7 @@ app.post('/formdata', function (req, res) {
     output += "<h1>Submitted Data </h1>";
 
     for (var i = 0; i < submittedData.length; i++) {
-        output += "<div style='color: " + submittedData[i].color + "'>" + submittedData[i].text + "</div>";
+        output += "<div style='background-color: " + submittedData[i].color + "'>" + submittedData[i].text + "</div>";
 
     }
 
@@ -52,6 +53,6 @@ app.post('/formdata', function (req, res) {
 });
 
 //commenting here, listen on port 80!
-app.listen(80, function () {
-    console.log('Example app listening on port 80!')
+app.listen(8080, function () {
+    console.log('Example app listening on port 8080!')
 });

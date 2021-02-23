@@ -3,15 +3,28 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Fun Form</title>
+    <title>In and Of Itself</title>
 </head>
 <body>
 
     <form method="POST" action="/formdata">
-        <label for="data">Enter Text to Post:</label>
-        <input type="text" name="data" value="Enter Text" />
+        <label for="data">I am a / an ___</label>
+        <input type="text" name="data" value="alchemist" />
+        <br />
+
+        <label for="number">Enter a unique 4-digit pin code: </label>
+        <input type="number" name="data" min="0000" max ="9999" value="0000" />
+        <br />
+
+
+
+        <label for="data">What color is your aura today?</label>
         <input type="color" name="color" />
-        <input type="submit" name="submit" value="Submit"/>
+        <br />
+        
+        <br />
+
+        <input type="submit" name="submit" value="Submit" />
     </form>
 
 </body>
