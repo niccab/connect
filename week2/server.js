@@ -41,7 +41,7 @@ app.post('/formdata', function (req, res) {
     output += "<h1>Submitted Data </h1>";
 
     for (var i = 0; i < submittedData.length; i++) {
-        output += "<div style='background-color: " + submittedData[i].color + "'>" + submittedData[i].text + "</div>";
+        output += "<div style='background-color: " + submittedData[i].color + "'>" + "Pin Code: " + submittedData[i].number + "<br />" + submittedData[i].text + "</div>";
 
     }
 
