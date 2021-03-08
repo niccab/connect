@@ -5,20 +5,14 @@
     <body>
         <h1>Here is the output!</h1>
 
-
         <% 
-
             if (data.length > 0) { 
                 for (var i = 0; i < data.length; i++) {
         %>
-                    <div id="dataout<%= i %>" style="color: <%= data[i].color %>"><%= data[i].text %></div>
-
+                    <div id="dataout<%= i %>" style="color: <%= data[i].color %>"><a href="/displayrecord?_id=<%= data[i]._id %>"<%= data[i].text %></a></div>
         <% 
-
-                } 
-
+                }
             }
-
         %>
 
 
