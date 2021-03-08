@@ -1,0 +1,53 @@
+﻿<html>
+    <head>
+        <title>AJAX</title>
+        <script type="text/javascript">
+            var messages = null;
+            var submit = null;
+            var text = null;
+            var color = null;
+
+            window.addEventListener('load', function () {
+                messages = document.getElementById('messages');
+                submit = document.getElementById('submit');
+                submit.addEventListener('click', sendData);
+                text = document.getElementById('text');
+                color = document.getElementById('color');
+            });
+
+            function sendData() {
+                fetch('/formdata?text='+text.value+'&color='+color.value)
+                    .then(response => response.json())
+                    .then(data => populateMessages(data));
+            }
+
+            function populateMessages(newmessages) {
+                messages.innerHTML = "";
+                for (var i = 0; i < newmessages.length; i++) {
+                    messages.innerHTML = messages.innerHTML + newmessages[i].text + "<br />";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="messages">
+            Previous Messages
+        </div>
+
+        <form>
+            <label for="data">I am a / an ___</label>
+            <input type="text" id="text" name="data" value="shapeshifter" />
+            <br /> 
+
+            <label for="data">Enter a unique 4-digit pin code: </label>
+            <input type="number" name="number" min="0000" max ="9999" value="0000" />
+            <br />
+
+            <label for="data">What color is your aura today?</label>
+            <input type="color" id="color" name="color" />
+            <br />
+
+            <input type="button" id="submit" name="submit" value="Submit" />
+        </form>
+    </body>
+</html>
