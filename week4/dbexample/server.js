@@ -27,17 +27,16 @@ app.post('/formdata', function (req, res) {
         color: req.body.color
     };
 
-    db.insert(doc, function (err, newDoc) { 
-        res.send("Data Saved: " + newDoc);
+    db.insert(dataToSave, function (err, newDoc) { 
+        db.find({}, function (err, docs) {
+            var dataWrapper = { data: docs };
+            res.render("outputtemplate.ejs", dataWrapper);
+        });
     });
 
-    /*submittedData.push(dataToSave);
-     var dataWrapper = {data: submittedData};
-    res.render("outputtemplate.ejs", dataWrapper);
-    */
 
 });
 
-app.listen(8010, function () {
+app.listen(80, function () {
     console.log('Example app listening on port 8010!')
 });
