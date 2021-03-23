@@ -1,0 +1,55 @@
+﻿<head>
+    <title>reframe release</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <section class="animation-box">
+        <div class="first-text">My name is Nico, and I want to thank you for your time.</div>
+        <div class="second-text">I know the time we have together is short, but I hope to make it meaningful.</div>
+        <div class="fourth-text">Each question you answer will illuminate the path, hopefully, to feeling lighter.</div>
+        <div class="fifth-text">I want you to know that whoever you are, I care about you. </div>
+        <div class="sixth-text">I'm here for you, 
+        
+        to support you, 
+        
+        to listen to you. 
+        
+        I see you. </div>
+
+        I know I am asking a lot of you, 
+        
+        when you may not have the capacity to be vulnerable with me.
+
+        Please consider this simply as an invitation - will you help me create this experience for you?
+
+        
+    </section>
+
+
+    <form method="POST" action="/formdata" enctype="multipart/form-data">
+
+        <input type="file" name="photo"></br>
+
+        <label for="data">I am a / an ___</label>
+        <input type="text" name="data" value="shapeshifter" />
+        <br />
+
+        <label for="data">Enter a unique 4-digit pin code: </label>
+        <input type="number" name="number" min="0000" max="9999" value="0000" />
+        <br />
+
+        <label for="data">What color is your aura today?</label>
+        <input type="color" name="color" />
+        <br />
+        <br />
+
+        <textarea name="longtext" cols="80" rows="10">
+
+
+</textarea>
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+
+</body>
+</html>

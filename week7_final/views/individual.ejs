@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title><%= data.text %></title>
+    </head>
+    <body>
+        <h1 style="color: <%= data.color %>"><%= data.text %></h1>
+        <p>
+            <%= data.longtext %>
+        </p>
+
+        <img src="/uploads/<%= data.file.filename %>"
+
+        <pre>
+        <%= JSON.stringify(data.file); %>
+        </pre>
+    </body>
+</html>

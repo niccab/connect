@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\cookies",
-    "\\https"
+    "\\fileupload",
+    "\\fileupload\\public",
+    "\\fileupload\\public\\uploads",
+    "\\fileupload\\views"
   ],
-  "SelectedNode": "\\cookies",
+  "SelectedNode": "\\fileupload\\public\\index.html",
   "PreviewInSolutionExplorer": false
 }

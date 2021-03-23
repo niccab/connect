@@ -1,0 +1,40 @@
+﻿<html>
+    <head>
+        <title>The Data</title>
+    </head>
+    <body>
+        <h1>Here is the output!</h1>
+
+        <% 
+            if (data.length > 0) { 
+                for (var i = 0; i < data.length; i++) {
+        %>
+                    <div id="dataout<%= i %>" style="color: <%= data[i].color %>"><a href="/displayrecord?_id=<%= data[i]._id %>"><%= data[i].text %></a></div>
+        <% 
+                }
+            }
+        %>
+
+
+    <form method="POST" action="/formdata">
+        <label for="data">I am a / an ___</label>
+        <input type="text" name="data" value="shapeshifter" />
+        <br />
+
+        <label for="data">Enter a unique 4-digit pin code: </label>
+        <input type="number" name="number" min="0000" max ="9999" value="0000" />
+        <br />
+
+
+
+        <label for="data">What color is your aura today?</label>
+        <input type="color" name="color" />
+        <br />
+        
+        <br />
+
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+
+    </body>
+</html>
