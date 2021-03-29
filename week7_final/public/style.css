@@ -1,5 +1,5 @@
 body {
-    font-size: 20%;
+    font-size: 18px;
     font-family: Arial;
     background-color: black;
     color:white;
@@ -124,74 +124,200 @@ body {
     }
 }
 
-.first-text {
+@keyframes final {
+    0% {
+        position: absolute;
+        bottom: -5rem;
+        opacity: 0;
+    }
+
+    25% {
+        position: absolute;
+        bottom: 25%;
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.txt01 {
     font-size: 18px;
     position: absolute;
     left: 2.5rem;
     top: 5rem;
     opacity: 0;
     animation-name: topFadeOut;
-    animation-duration: 5s;
+    animation-duration: 6s;
     color: white;
 }
 
-.second-text {
-    font-size: 18px;
-    position: absolute;
-    top: 8.5rem;
-    opacity: 0;
-    animation-name: rightFadeInOut;
-    animation-delay: 3s;
-    animation-duration: 6s;
-    color: #ccc;
-}
-
-.third-text {
-    transform: rotate(-90deg);
-    font-size: 2rem;
-    position: absolute;
-    left: 45%;
-    top: 45%;
-    opacity: 0;
-    animation-name: topFadeOutVertical;
-    animation-delay: 7.5s;
-    animation-duration: 6s;
-    color: #A3DDF0;
-    white-space: nowrap;
-}
-
-.fourth-text {
+.txt02 {
     font-size: 18px;
     position: absolute;
     top: 10.5rem;
     left: 10%;
     opacity: 0;
-    color: #F0A3BE;
+    color: white;
     animation-name: fadeInOut;
-    animation-delay: 8.5s;
-    animation-duration: 9s;
+    animation-delay: 7s;
+    animation-duration: 6s;
 }
 
-.fifth-text {
+.txt03 {
     font-size: 18px;
     position: absolute;
-    left: 5%;
-    bottom: 25%;
+    top: 10.5rem;
+    left: 10%;
     opacity: 0;
-    color: #F0EBA3;
-    animation-name: bottomFadeOut;
-    animation-delay: 10s;
-    animation-duration: 9s;
+    color: white;
+    animation-name: fadeInOut;
+    animation-delay: 11s;
+    animation-duration: 6s;
+
 }
 
-.sixth-text {
+.txt04 {
     font-size: 18px;
     position: absolute;
-    left: 2.5rem;
-    top: 5rem;
+    top: 10.5rem;
+    left: 10%;
     opacity: 0;
-    animation-name: bottomFadeStay;
+    color: white;
+    animation-name: fadeInOut;
     animation-delay: 15s;
+    animation-duration: 6s;
+}
+
+.txt05 {
+    font-size: 18px;
+    position: absolute;
+    top: 10.5rem;
+    left: 10%;
+    opacity: 0;
+    color: white;
+    animation-name: fadeInOut;
+    animation-delay: 20s;
+    animation-duration: 9s;
+}
+
+.txt06 {
+    font-size: 18px;
+    position: absolute;
+    left: 20%;
+    top: 12rem;
+    opacity: 0;
+    animation-name: bottomFadeOut;
+    animation-delay: 23s;
+    animation-duration: 5s;
+    color: white;
+}
+
+.txt07 {
+    font-size: 18px;
+    position: absolute;
+    left: 30%;
+    top: 14rem;
+    opacity: 0;
+    animation-name: bottomFadeOut;
+    animation-delay: 24s;
+    animation-duration: 5s;
+    color: white;
+}
+
+.txt08 {
+    font-size: 18px;
+    position: absolute;
+    left: 40%;
+    top: 16rem;
+    opacity: 0;
+    animation-name: bottomFadeOut;
+    animation-delay: 25s;
+    animation-duration: 7s;
+    color: white;
+}
+
+.txt09 {
+    font-size: 18px;
+    position: absolute;
+    top: 10.5rem;
+    left: 10%;
+    opacity: 0;
+    color: white;
+    animation-name: fadeInOut;
+    animation-delay: 35s;
+    animation-duration: 6s;
+}
+
+.txt10 {
+    font-size: 18px;
+    position: absolute;
+    top: 10.5rem;
+    left: 10%;
+    opacity: 0;
+    color: white;
+    animation-name: fadeInOut;
+    animation-delay: 39s;
+    animation-duration: 6s;
+    color: white;
+}
+
+.txt11 {
+    font-size: 18px;
+    position: absolute;
+    top: 10.5rem;
+    left: 10%;
+    opacity: 0;
+    color: white;
+    animation-name: fadeInOut;
+    animation-delay: 45s;
+    animation-duration: 6s;
+    color: white;
+}
+
+.txt12 {
+    font-size: 18px;
+    position: absolute;
+    top: 10.5rem;
+    left: 10%;
+    opacity: 0;
+    color: white;
+    animation-name: fadeInOut;
+    animation-delay: 49s;
+    animation-duration: 6s;
+    color: white;
+}
+
+.txt13 {
+    font-size: 18px;
+    position: absolute;
+    top: 10.5rem;
+    left: 10%;
+    opacity: 0;
+    color: white;
+    animation-name: final;
+    animation-delay: 52s;
     animation-duration: 100s;
     color: white;
 }
+
+
+.button {
+    background-color: #555555;
+    border: 2px solid #555555;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+    .button:hover {
+        background-color: white;
+        color: black;
+    }
