@@ -7,6 +7,15 @@ var multer = require('multer')
 var bodyParser = require('body-parser');
 var app = express();
 
+var session = require('express-session');
+var nedbstore = require('nedb-session-store')(session);
+
+var bcrypt = require('bcrypt-nodejs');
+
+// https://github.com/kelektiv/node-uuid
+// npm install uuid
+const uuid = require('uuid');
+
 var upload = multer({ dest: 'public/uploads/' })
 
 var urlencodedBodyParser = bodyParser.urlencoded({ extended: true });
@@ -40,7 +49,13 @@ app.post('/formdata', upload.single('photo'), function (req, res) {
             file: req.file,
             text: req.body.data,
             number: req.body.number,
-            color: req.body.color,
+			color: req.body.color,
+			colorfeel1: req.body.colorfeel1,
+			colorfeel2: req.body.colorfeel2,
+			colorfeel3: req.body.colorfeel3,
+			colorjoy1: req.body.colorjoy1,
+			colorjoy2: req.body.colorjoy2,
+			colorjoy3: req.body.colorjoy3,
             longtext: req.body.longtext
         };
 
@@ -62,6 +77,115 @@ app.post('/formdata', upload.single('photo'), function (req, res) {
         res.send("Not an accepted image file");
     }
 });
+
+
+
+app.use(
+	session(
+		{
+			secret: 'secret',
+			cookie: {
+				maxAge: 365 * 24 * 60 * 60 * 1000   // e.g. 1 year
+			},
+			store: new nedbstore({
+				filename: 'sessions.db'
+			})
+		}
+	)
+);
+
+app.use(express.static('public'));
+
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: true }); // for parsing form data
+app.use(urlencodedParser);
+
+// User database
+var Datastore = require('nedb');
+var db = new Datastore({ filename: 'users.db', autoload: true });
+
+function generateHash(password) {
+	return bcrypt.hashSync(password);
+}
+
+function compareHash(password, hash) {
+	return bcrypt.compareSync(password, hash);
+}
+
+
+// Main page
+app.get('/', function (req, res) {
+	console.log(req.session.username);
+
+	if (!req.session.username) {
+		res.redirect('/login.html');
+	} else {
+		// Give them the main page
+		//res.send('session user-id: ' + req.session.userid + '. ');
+
+
+		var lastlogin = req.session.lastlogin;
+		var timeelapsed = Date.now() - lastlogin;
+		timeelapsed = timeelapsed / 1000;
+		res.send("You were last here: " + Math.round(timeelapsed) + " seconds ago");
+
+		//res.send(req.session);
+	}
+});
+
+app.post('/register', function (req, res) {
+	// We want to "hash" the password so that it isn't stored in clear text in the database
+	var passwordHash = generateHash(req.body.password);
+
+	// The information we want to store
+	var registration = {
+		"username": req.body.username,
+		"password": passwordHash
+	};
+
+	// Insert into the database
+	db.insert(registration);
+	console.log("inserted " + registration);
+
+	// Give the user an option of what to do next
+	res.redirect('/letsdoit.html');
+
+});
+
+// Post from login page
+app.post('/login', function (req, res) {
+
+	// Check username and password in database
+	db.findOne({ "username": req.body.username },
+		function (err, doc) {
+			if (doc != null) {
+
+				// Found user, check password				
+				if (compareHash(req.body.password, doc.password)) {
+					// Set the session variable
+					req.session.username = doc.username;
+
+					// Put some other data in there
+					req.session.lastlogin = Date.now();
+
+					res.redirect('/yes.html');
+
+				} else {
+
+					res.send("Invalid Try again");
+
+				}
+			}
+		}
+	);
+
+
+});
+
+app.get('/logout', function (req, res) {
+	delete req.session.username;
+	res.redirect('/');
+});	
 
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
